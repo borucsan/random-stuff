@@ -14,7 +14,12 @@ const server = new ApolloServer({
         firstName: 'John',
         email: 'john@example.com',
         pets: ['Mittens', 'Doggo', 'Birb']
-    }
+    },
+    playground: true,
+    introspection: true,
 });
 
-server.listen({port: 4567}).then((result) => console.log(result.url));
+server.listen({
+    port: process.env.PORT || 4567
+})
+.then((result) => console.log(result.url));
